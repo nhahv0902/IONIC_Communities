@@ -1,0 +1,67 @@
+<ion-view hide-nav-bar="true">
+  
+    
+	 <ion-content>
+	
+        <ion-list>	
+		<div class="item item-divider  item-text-wrap " ng-if="isGroupMaking && group_member_str">
+			{{group_member_str}}
+			
+		</div>
+	
+			
+		<div class="item item-divider"
+			ng-repeat-start="(group, contacts) in contacts">
+			{{group}}
+			
+		</div>
+
+		  <span ng-repeat="friend in contacts | filter:searchText">
+                <ion-item ng-if="!isGroupMaking" class="item-avatar" type="item-text-wrap" ng-click="action(friend)" nav-direction="forward">
+
+                <img src="{{friend.avatar}}" ng-click="profile($event, '{{friend.name}}')">              
+                    <h3>
+                        <small>{{friend.name}}-{{friend.title}}</small>
+                    </h3>
+					<p> {{friend.phone_number}}</p>					
+					 
+                </ion-item>
+				
+				<ion-item ng-if="isGroupMaking" class="item-avatar" type="item-text-wrap" ng-click="selectedChange(friend)" nav-direction="forward">
+
+                <img src="{{friend.avatar}}" ng-click="profile($event, '{{friend.name}}')">
+
+              
+                    <h3>
+                        <small>{{friend.name}}-{{friend.title}}</small>
+                    </h3>
+					<p> {{friend.phone_number}}</p>
+					
+					 <span class="item-note" ng-if="isGroupMaking" ng-click="change()">
+					 
+					 <!--input type="checkbox" ng-model="friend.selected" ng-click="change()" /-->
+					 
+					 <div class="item-checkbox checkbox checkbox-input-hidden disable-pointer-events checkbox-circle">
+					<input type="checkbox" ng-model="friend.selected" class="ng-untouched ng-valid ng-dirty ng-valid-parse ng-empty">
+					<i class="checkbox-icon"></i>
+					</div>
+
+
+					 </span>
+					 
+                </ion-item>		
+							
+				
+				
+				
+            </span>
+			
+			
+		<div ng-repeat-end></div>
+			
+			
+        </ion-list>
+        <div style="height: 60px"></div>
+    </ion-content>
+	
+</ion-view>

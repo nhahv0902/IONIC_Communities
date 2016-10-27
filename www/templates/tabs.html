@@ -1,0 +1,58 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+  <ion-header-bar class="bar-stable">
+        <div ng-if="tab_friends" class="buttons">
+            <button class="button button-clear button-icon button-positive icon ion-ios-search"
+                    ng-click="showFilterBar()"></button>
+        </div>
+        <div class="title" style="text-align: center;">
+            
+			 <div class="bar-light" style="text-align: center;">
+				{{title}} <span ng-if="show_company">{{company.name}}</span>
+            </div>
+			
+        </div>
+        <div ng-if="tab_friends" class="buttons">
+            <button ng-if="isGroupMaking" class="button button-clear button-icon button-positive icon ion-ios-email-outline"
+                    ng-click="sendGroup()" style="position: absolute; right: 45px;"></button>
+			 <button ng-if="isGroupMaking" class="button button-clear button-icon button-positive icon ion-ios-telephone-outline"
+                    ng-click="callGroup()" style="position: absolute; right: 5px;"></button>
+					
+			 <button ng-if="!isGroupMaking" class="button button-clear button-icon button-positive icon ion-ios-more"
+                    ng-click="popover.show($event)" style="position: absolute; right: 5px;"></button>
+					
+        </div>
+    </ion-header-bar>
+
+<ion-tabs class="tabs-icon-top tabs-color-active-positive">
+	 
+	
+	  <!-- Activities Tab -->
+    <ion-tab title="Recent" icon-off="ion-ios-clock-outline" icon-on="ion-ios-clock" href="#/tab/activities">
+        <ion-nav-view name="tab-activities"></ion-nav-view>
+    </ion-tab>  
+ 
+
+    <!-- Friends Tab -->
+    <ion-tab title="Member" icon-off="ion-ios-people-outline" icon-on="ion-ios-people" href="#/tab/friends">
+        <ion-nav-view name="tab-friends"></ion-nav-view>
+    </ion-tab>
+
+    <!-- Group-Making Tab -->
+    <ion-tab title="Group" icon-off="ion-ios-plus-outline" icon-on="ion-ios-plus" href="#/tab/group_making">
+        <ion-nav-view name="tab-group-making"></ion-nav-view>
+    </ion-tab>	
+	
+	 <!-- Account Tab -->
+    <ion-tab title="Info" icon-off="ion-ios-information-outline" icon-on="ion-ios-information" href="#tab/account">
+        <ion-nav-view name="tab-account"></ion-nav-view>
+    </ion-tab>	
+	 
+	
+	
+
+
+</ion-tabs>

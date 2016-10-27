@@ -1,0 +1,27 @@
+<div class="modal calling-modal">
+  <div>
+    <div class="list-of-callers">
+      <button ng-click="" class="button button-clear button-light"><i class="icon icon-left ion-chevron-left" ></i></button>
+    </div>
+    <div class="img-avtar">
+
+      <h2 class="callusernames">Group {{currentRoom}}<br><span ng-repeat="user in userInGroupCall ">{{user}} {{$last ? '' : ', '}}</span></h2>
+      <h3 class="timer">
+
+        <timer>{{mminutes}}:{{sseconds}}</timer><span> Online : {{onlineUserInGroup}}<span>
+      </h3>
+      
+    </div>
+    <div class="calling-icons-group">
+      <div class="img-avtar-account"><img style ="border-radius: 95px;" src="img/user.png" ></div>
+	  <div class="rounded-inline"><span class="icon-holder"><i  ng-class="{'fa fa-microphone':volume==1,'fa fa-microphone-slash':volume==0}" ng-click="changeAudio()"></i></span></div>
+      <div class="rounded-inline"> <span class="icon-holder"><i ng-class="{'ion-android-volume-up highlight':audiotoggle== false,'ion-android-volume-up':audiotoggle== true}" ng-click="switchAudio()"></i></span></div>
+      <br />
+      <div class="rounded-inline"><span class="icon-holder"><i class="fa fa-video-camera" ></i></span></div>
+      <div class="rounded-inline"> <span class="icon-holder" ng-click="addCallers1()"><i class="fa fa-user-plus"></i></span> </div>
+    </div>
+    <div class="padding">
+      <button class="button button-rounded call-icon" ng-click="closeModal()"><i><img src="img/call-drop-icon.png" ></i></button>
+    </div>
+  </div>
+</div>

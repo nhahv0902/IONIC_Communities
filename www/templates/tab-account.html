@@ -1,0 +1,43 @@
+<ion-view hide-nav-bar="true">
+	  
+
+    <ion-content id="tab-account">
+        <ion-list>
+            <ion-item class="item-avatar item-avatar-center item-avatar-xl text-center" ng-if="userId!==213">
+                <img src="{{data.user.avatar}}" ng-click="choosePhoto()">
+                <h3><small>{{data.user.name}}</small></h3>
+                <button style="color:#009FE8" class="button button-clear button-small button-positive" ng-click="choosePhoto()">Change avatar</button>
+            </ion-item>
+			
+			<ion-item class="item-icon-right" ng-click="showNotification();">
+                <h3><small>Phone Number</small></h3>
+                <p>{{data.user.phone_number}}</p>
+               
+            </ion-item>	
+          		 
+			 <ion-item class="item-icon-right" ng-click="changeEmail();">
+                <h3><small>Email</small></h3>
+                <p>{{data.user.email}}</p>
+				 <i class="icon ion-ios-arrow-right"></i>
+              
+            </ion-item>
+			 
+			
+			 <ion-item class="item-icon-right" ng-click="showNotification();">
+                <h3><small>{{company.name}} Admin Contact</small></h3>
+                <p>{{company.admin_email}}</p>
+				
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+			
+			 <ion-item class="item-icon-right" ng-click="logout();">
+                <h3><small>Logout</small></h3>
+              
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+			
+			
+          
+        </ion-list>
+    </ion-content>
+</ion-view>

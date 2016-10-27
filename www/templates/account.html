@@ -1,0 +1,55 @@
+<ion-view hide-nav-bar="true">
+	    <ion-header-bar class="bar-stable">
+        <div class="buttons">
+            <button class="button button-clear button-icon button-positive icon ion-ios-arrow-left"
+                    ng-click="historyBack()"></button>
+        </div>
+        <div class="title" style="padding: 0px 0;">
+           Info	at {{company.name}}		
+        </div>
+       
+    </ion-header-bar>
+
+    <ion-content id="tab-account">
+        <ion-list>
+            <ion-item class="item-avatar item-avatar-center item-avatar-xl text-center" ng-if="userId!==213">
+                <img src="{{data.user.avatar}}" ng-click="changeAvatar()">
+                <h3><small>{{data.user.name}}</small></h3>
+                <button style="color:#009FE8" class="button button-clear button-small button-positive" ng-click="changeAvatar()">Change avatar</button>
+            </ion-item>
+			
+			 <ion-item class="item-icon-right" ng-click="showPromptName();">
+                <h3><small>Name</small></h3>
+                <p>{{data.user.name}}</p>
+                
+            </ion-item>
+
+            <ion-item class="item-icon-right" ng-click="showNotification();">
+                <h3><small>Phone</small></h3>
+                <p>{{data.user.phone_number}}</p>
+               
+            </ion-item>			 
+			 <ion-item class="item-icon-right" ng-click="changeEmail();">
+                <h3><small>Email</small></h3>
+                <p>{{data.user.email}}</p>
+				 <i class="icon ion-ios-arrow-right"></i>
+              
+            </ion-item>
+			 <ion-item class="item-icon-right" ng-click="showNotification();">
+                <h3><small>{{company.name}} Admin Contact</small></h3>
+                <p>{{company.admin_email}}</p>
+				
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+			
+			 <ion-item class="item-icon-right" ng-click="logout();">
+                <h3><small>Logout</small></h3>
+              
+                <i class="icon ion-ios-arrow-right"></i>
+            </ion-item>
+			
+			
+          
+        </ion-list>
+    </ion-content>
+</ion-view>

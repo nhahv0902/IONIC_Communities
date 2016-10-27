@@ -1,0 +1,44 @@
+﻿<ion-view view-title="Recent">
+   
+    <ion-content>
+        <ion-list ng-if="data.recents">
+       
+
+            <span ng-repeat="recent in data.recents">
+                <ion-item class="item-remove-animate item-avatar" nav-direction="forward" ng-click="action(recent)"
+                          type="item-text-wrap">
+					   <img src="img/logo.png" ng-click="profile($event, '{{friend.name}}')">      
+                    <h3>
+                        <small>{{recent.group_member_str}}</small>
+                    </h3>
+
+                    <p>Đang tiến hành</p>
+
+                    <span class="item-note">{{recent.date_frm}}</span>
+
+                    <ion-option-button class="button-assertive" ng-click="remove($index)">
+                        Delete
+                    </ion-option-button>
+
+                </ion-item>
+            </span>
+        </ion-list>
+
+        <!--show when there is no activity
+        <div ng-if="!activities">
+            <div style="height: 60px"></div>
+            <div class="text-center" style="padding: 45px">
+                <h2 class="grey">
+                    Recent
+                </h2>
+
+                <div style="height: 10px"></div>
+                <h4 class="grey">Once you start chatting, all your messages will be here.</h4>
+
+                <div style="height: 20px"></div>
+                <button class="button button-outline" ng-click="openNewChat()">New Message</button>
+            </div>
+        </div>
+		-->
+    </ion-content>
+</ion-view>

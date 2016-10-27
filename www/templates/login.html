@@ -1,0 +1,47 @@
+<ion-view hide-nav-bar="true">
+    <ion-content class="padding text-center">
+        <div style="height: 25px"></div>
+
+        <img src="img/logo.png" style="width: 100px; height: auto">
+
+		<div ng-if="!is_active_code">
+			<h2>Your Phone Number</h2>		
+
+			<div style="height: 25px"></div>
+
+			<ion-list class="border-none">
+				<ion-item class="item-input border-bottom">
+					<input type="text" ng-model="setting.phone_number" placeholder="PhoneNumber">
+				</ion-item>           
+			</ion-list>
+			<div class="padding">
+			   
+				<button style="background-color:#009FE8" class="button button-clear button-small button-positive" ng-click="setPhoneNumber()">Continue</button>
+				
+			</div>	
+		</div>
+		
+		<div ng-if="is_active_code">
+			<h2>We are sending the active code via SMS</h2>		
+
+			<div style="height: 25px"></div>
+
+			<ion-list class="border-none">
+				<ion-item class="item-input border-bottom">
+					<input type="text" ng-model="setting.active_code" placeholder="ActiveCode">
+				</ion-item>           
+			</ion-list>
+			<div class="padding">
+			   
+				<button style="background-color:#009FE8" class="button button-clear button-small button-positive" ng-click="setActiveCode()">Continue </button>
+				
+			</div>	
+		</div>
+       
+    </ion-content>
+
+    <ion-footer-bar>
+        
+       
+    </ion-footer-bar>
+</ion-view>

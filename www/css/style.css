@@ -1,0 +1,98 @@
+/* Empty. Add your own CSS if you like */
+.bar-calling-app{height:60px}
+.bar-calling-app .logo{max-width:100px;z-index:100;position:absolute}
+.tabs-top > .tabs,.tabs.tabs-top{top:60px}
+.scroll-content.has-header.has-tabs-top{top:109px}
+.checkbox input:before, .checkbox input + .checkbox-icon:before{}
+.checkbox input:checked:before, .checkbox input:checked + .checkbox-icon:before{background-color:#52c8f4; border-color:#52c8f4}
+.item-add-contact{position:absolute;border-radius:50%;background-color:#52c8f4;text-align:center;display:block;position:absolute;color:#fff;width:45px;height:45px;font-size:20px;display:-webkit-inline-box;display:-webkit-inline-flex;display:-moz-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-align-items:center;align-items:center;border:3px solid #52c8f4;right:65px;text-align:center}
+.item-add-contact .fa{width:45px}
+.tabs-striped .tab-item.tab-item-active,.tabs-striped .tab-item.active,.tabs-striped .tab-item.activated{border-color:#00aff0;border-width:0 0 5px!important}
+.tabs-striped .tabs{border-color:#b4e7fb}
+.tabs-top.tabs-striped .tab-item{color:#00aff0;opacity:1}
+.tabs-top.tabs-striped .tab-item.tab-item-active{font-weight:700!important}
+.fa-icon{font-size:26px}
+.save-actions .button{margin:4px 0 0 10px}
+/*.bar.bar-positive,.button-positive{background-color:#29ace4!important;border-color:#29ace4 !important;color:#fff}*/
+.bar.bar-positive .ion-home,.button.button-light.button-clear{color:#fff}
+.bar-calling-app .item-right-align{position:absolute;right:5px;top:0px}
+.bar-calling-app .save-account{position:absolute;right:10px;top:13px}
+.bar-calling-app.bar .title{line-height:60px!important}
+.bar-calling-app .item-avatar-profile{ position:relative; display:inline-block; position: absolute; right:0px; width:50px; height:50px; top:-15px;right:-15px;}
+.bar-calling-app .item-avatar-profile img{   position: absolute;
+    top: 16px;
+    right: 16px;
+    max-width: 45px;
+    max-height: 45px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;}
+.calling-icon-holder{border:1px solid #29ace4;border-radius:50%;width:35px;height:35px;display:inline-block;margin-left:20px;position:absolute;right:20px;top:25px;text-align:center}
+.calling-icon{color:#29ace4;font-size:25px;line-height:35px}
+.calling-icon-holder:hover,.calling-icon:hover{border-color:#fd4270;color:#fd4270}
+.account-page{margin-top:65px}
+.profile-pic-holder{position:relative; text-align:center}
+.ion-add-custom i{ position:absolute;top:-2px;right:-15px; font-size:15px !important;}
+.ion-add-custom{position:relative}
+.profile-pic-holder .img-avtar-account{width:150px !important; height:150px !important; position:relative; margin:0 auto; overflow:hidden; top:10px; display:-webkit-inline-box;display:-webkit-inline-flex;display:-moz-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-align-items:center;align-items:center;}
+.profile-pic-holder img{    position: absolute;
+    top: 16px;
+    right: 16px;
+    max-width: 128px;
+    max-height: 128px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;}
+.profile-highlighter h2{margin-left:200px;color:#fff}
+.modal-open .modal.calling-modal, .modal.calling-modal{ background:#00aeef !important}
+.calling-modal{text-align:center}
+.ion-android-volume-up.highlight{ color:#fd4270 !important}
+.img-avtar-calling{width:110px;border-radius:50%;background-color:#fff;-webkit-transform:rotate(0.000001deg);display:inline-block;background-color:#0e6d82}
+.calling-modal .img-avtar img{width:100px;border-radius:50%}
+.calling-modal h2{font-size:20px;color:#fff;padding-top:20px}
+.calling-modal .timer{color:#fff;font-size:14px}
+.calling-icons-group{margin:10px 0 0}
+.calling-icons-group .rounded-inline{display:inline-block;margin-right:15px;margin-bottom:15px;position:relative;width:60px;height:60px}
+.calling-icons-group span.icon-holder{border-radius:50%;background-color:#1e9ace;text-align:center;display:block;position:absolute;color:#fff;width:100%;height:100%;font-size:28px;display:-webkit-inline-box;display:-webkit-inline-flex;display:-moz-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-align-items:center;align-items:center;left:0}
+.calling-icons-group span.icon-holder i{line-height:60px;line-height:60px;display:block;width:100%}
+.button-rounded,.button-rounded:hover{border-radius:50px;width:100%;max-width:125px;height:30px;background-color:#e51323 !important;color:#fff;border:0;margin:20px 0 0}
+.call-icon i{display:inline-block;width:31px;height:30px;color:#fff;vertical-align:top}
+form i.icon.error{color:red}
+form input + i.icon.error{display:none;margin-left:8px}
+form.ng-submitted input.ng-invalid + i.icon.error{display:block}
+form .has-error{border-left:5px solid darken(red,15%)}
+form .has-success{border-left:5px solid darken(#062339,15%)}
+form.ng-submitted input.ng-valid + i.icon.error{display:none}
+.icon-add-contact{position:absolute;border-radius:50%;background-color:#1e9ace;display:inline-block;width:36px;height:35px;text-align:center;font-size:20px;vertical-align:middle}
+.icon-add-contact a{line-height:35px}
+.list-of-callers{font-size:30px;color:#fff;position:absolute;left:10px;top:20px}
+.csscroll{height:160px}
+.item-divider-list{border-bottom:1px solid #ddd}
+.add-number{ width:100%; padding-top:10px;}
+.add-number i{ font-size:30px; color:#fff;}
+.item-divider-custom{min-height:55px;vertical-align:middle}
+.item-divider-custom.item-complex h2{margin-top:5px}
+.item-divider-custom.item-complex .item-content{background-color:#f5f5f5!important;padding:5px 49px 5px 16px}
+.item-divider-custom.item-complex .calling-icon-holder{top:0!important}
+.inline-list{display:inline-block;margin:0;text-align:center;border-left:3px solid #fd4270;padding:10px 20px}
+.item-divider-list{white-space:nowrap}
+.inline-list img{display:inline-block;overflow:hidden;line-height:1;vertical-align:middle;border-radius:50%;width:50px}
+.inline-list p{margin-top:10px;color:#666!important}
+.callingapp-footer.bar.bar-secondary{height:55px;border-color:#52c8f4!important;background-color:#52c8f4!important}
+.icons-tab-nav{text-align:center;width:100%}
+.icons-tab-nav a i{display:block;width:20px;height:20px;display:block;font-size:22px;margin:0 auto 3px}
+.icons-tab-nav a,.icons-tab-nav a:hover{color:#fff;text-decoration:none;font-size:12px;display:inline-block;text-align:center;text-decoration:none;text-overflow:ellipsis;white-space:nowrap;font-weight:400;font-size:14px;width:30%}
+.list-icon-right{position:absolute;right:10px;top:20px}
+.callusernames{white-space:nowrap;text-overflow:ellipsis;max-width:100%;overflow:hidden;text-align:center;display:block}
+.hidden{display:none}
+.has-header-modal{padding-top:44px}
+.scale-in{-webkit-transform:scale(0.0);transform:scale(0.0);opacity:0}
+.scale-in.ng-enter,.scale-in > .ng-enter{-webkit-transition:all cubic-bezier(.1,.7,.1,1) 400ms;transition:all cubic-bezier(.1,.7,.1,1) 400ms}
+.scale-in.ng-enter-active,.scale-in > .ng-enter-active{-webkit-transform:scale(1);transform:scale(1);opacity:1}
+.scale-in.ng-leave,.scale-in > .ng-leave{-webkit-transition:all ease-in-out .2s;transition:all ease-in-out .2s;opacity:0}
+
+.full-width-title{ width:70%;}
+.group-contact-item h2{margin-top:5px}
+.forminput{ font-size:16px !important;}
+.phoneforminput{ font-size:24px !important; font-weight:normal;}
+.has-footer-content{ padding-bottom: 170px;}
