@@ -44,20 +44,13 @@ angular.module('starter.controllers', [])
 				$rootScope.title = 'Info at';
 				$rootScope.tab_friends = false;
 			}
-
 		})
-
-
-
-
 })
 
 
 .controller('LoginCtrl', function ($rootScope, $scope, Data, $state, $localStorage, signaling, $auth) {
 
-
 	$scope.setting = {};
-
 	$scope.setPhoneNumber = function () {
 		Data.init();
 		$localStorage.user.phone_number = $scope.setting.phone_number;
@@ -84,8 +77,6 @@ angular.module('starter.controllers', [])
 
 		//socket.io
 		//signaling.emit('login', $localStorage.user);
-
-
 	}
 
 	$scope.setActiveCode = function () {
@@ -142,7 +133,10 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('FriendsCtrl', function ($rootScope, $scope, $stateParams, $filter, $ionicPopover, $ionicModal, $ionicPopup, $ionicModal, Data, $state, $localStorage, $ionicHistory, $ionicActionSheet, $ionicFilterBar, $cordovaSocialSharing) {
+.controller('FriendsCtrl', function ($rootScope, $scope, $stateParams, $filter,
+	$ionicPopover, $ionicModal, $ionicPopup, $ionicModal, Data, $state,
+	$localStorage, $ionicHistory, $ionicActionSheet, $ionicFilterBar,
+	$cordovaSocialSharing, $cordovaSms) {
 
 
 	/************ setup data to offfline display*******************/
@@ -179,9 +173,6 @@ angular.module('starter.controllers', [])
 			$rootScope.popover = popover;
 		});
 
-
-
-
 	$scope.selectedChange = function (member) {
 		member.selected = !member.selected;
 		$rootScope.group_member_str = '';
@@ -196,9 +187,6 @@ angular.module('starter.controllers', [])
 
 				$rootScope.company.user[i].is_online = false;
 				$rootScope.group_member.push($rootScope.company.user[i]);
-
-
-
 			}
 		}
 
@@ -220,8 +208,6 @@ angular.module('starter.controllers', [])
 				me = $rootScope.company.user[i];
 			}
 		}
-
-
 
 		recent.group_member = $rootScope.group_member;
 		recent.group_member.unshift(me);
@@ -250,7 +236,6 @@ angular.module('starter.controllers', [])
 		for(var i = 0; i < $rootScope.company.user.length; i++) {
 			if($rootScope.company.user[i].phone_number == $localStorage.user.phone_number) {
 				me = $rootScope.company.user[i];
-
 			}
 		}
 
@@ -260,12 +245,7 @@ angular.module('starter.controllers', [])
 
 		$rootScope.recent = recent;
 		$localStorage.recents.splice(0, 0, recent);
-
-
-
 		$scope.modal.show();
-
-
 	};
 
 	$scope.action = function (member) {
@@ -305,8 +285,30 @@ angular.module('starter.controllers', [])
 						return true;
 					}
 
-					if(index == 1)
-						alert('sms:' + member.name);
+					if(index == 1) {
+						document.addEventListener("deviceready", function () {
+
+							var options = {
+								replaceLineBreaks: false, // true to replace \n by a new line, false by default
+								android: {
+									intent: 'INTENT' // send SMS with the native android SMS messaging
+										//intent: '' // send SMS without open any other app
+										//intent: 'INTENT' // send SMS inside a default SMS app
+								}
+							};
+
+							$cordovaSms
+								.send('', '', options)
+								.then(function () {
+									// Success! SMS was sent
+									alert('Success');
+								}, function (error) {
+									// An error occurred
+									alert('Error');
+								});
+
+						});
+					}
 					if(index == 2)
 						alert('call:' + member.name);
 
