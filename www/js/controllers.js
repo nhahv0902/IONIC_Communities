@@ -136,7 +136,7 @@ angular.module('starter.controllers', [])
 .controller('FriendsCtrl', function ($rootScope, $scope, $stateParams, $filter,
 	$ionicPopover, $ionicModal, $ionicPopup, $ionicModal, Data, $state,
 	$localStorage, $ionicHistory, $ionicActionSheet, $ionicFilterBar,
-	$cordovaSocialSharing, $cordovaSms) {
+	$cordovaSocialSharing, $cordovaSms, $cordovaContacts, $ionicPlatform) {
 
 
 	/************ setup data to offfline display*******************/
@@ -309,8 +309,53 @@ angular.module('starter.controllers', [])
 
 						});
 					}
-					if(index == 2)
-						alert('call:' + member.name);
+					if(index == 2) {
+						/*
+						$scope.contactForm = {
+
+    "displayName": "jones",
+    "name": {
+        "givenName": "jones",
+        "formatted": "jones "
+    },
+    "nickname": null,
+    "phoneNumbers": [
+        {
+            "value": "99999999999",
+            "type": "mobile"
+        }
+    ],
+    "emails": [
+        {
+            "value": "xddf@dd.com",
+            "type": "home"
+        }
+    ],
+    "addresses": [
+        {
+            "type": "home",
+            "formatted": "This Address, An Address",
+            "streetAddress": "This Address, An Address"
+        }
+    ],
+    "ims": null,
+    "organizations": null,
+    "birthday": null,
+    "note": "",
+    "photos": null,
+    "categories": null,
+    "urls": null
+}
+						*/
+						$cordovaContacts.save($scope.contactForm)
+							.then(function (result) {
+								// Contact saved
+								alert('call:' + member.name);
+
+							}, function (err) {
+								// Contact error
+							});
+					}
 
 
 				}
