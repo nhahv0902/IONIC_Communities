@@ -4,9 +4,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height">
       <title>Calling App</title>
-      <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
-
-
+	  
+	  
       <!-- iPad and iPad mini (with @2× display) iOS ≥ 8 -->
       <link rel="apple-touch-icon-precomposed" sizes="180x180" href="img/icon/icon-60@3x.png">
       <!-- iPad 3+ (with @2× display) iOS ≥ 7 -->
@@ -47,10 +46,8 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.min.js"></script>
-
+	 <script src="lib/ng-cordova.min.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
-
-     <script src="lib/ng-cordova.min.js"></script>
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
@@ -58,54 +55,53 @@
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
 	<script src="js/signaling.js"></script>
-
-
+	
 
 	<script src="lib/ng-tags-input.min.js"></script>
 	<script src="lib/ngStorage.min.js"></script>
 	<script src="lib/socket.io.js"></script>
 	<script src="lib/socket.js"></script>
-	<script src="lib/adapter.js"></script>
-	<script src="lib/jquery.min.js"></script>
-	<script src="lib/janus.js"></script>
-	<script src="lib/satellizer.js"></script>
-
+	<script src="lib/adapter.js"></script>    
+	<script src="lib/jquery.min.js"></script>    
+	<script src="lib/janus.js"></script>  
+	<script src="lib/satellizer.js"></script>  
+	
 	<link rel="stylesheet" href="ionic-filter-bar/dist/ionic.filter.bar.css">
 	<script src="ionic-filter-bar/dist/ionic.filter.bar.js"></script>
-
-
+ 
+	
   </head>
   <body ng-app="starter" ng-controller="MainCtrl">
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
-
+  
     <!--
       The views will be rendered in the <ion-nav-view> directive below
       Templates are in the /templates folder (but you could also
       have templates inline in this html file if you'd like).
     -->
     <ion-nav-view ng-init="doSomething()"></ion-nav-view>
-
+	
 	<script id="templates/calling.html" type="text/ng-template">
       <ion-modal-view>
        <div class="modal calling-modal">
   <div>
-
+   
     <div class="img-avtar">
-
+	
       <h2 class="callusernames">Tham gia </h2>
       <h3 class="timer" style="font-weight:bold">
 
         <span ng-repeat="member in recent.group_member" ng-if="member.is_online">{{member.name}}-{{member.title}} <span>
       </h3>
-
+      
     </div>
     <!--div class="calling-icons-group">
-     <div class="rounded-inline img-avtar-account" ng-repeat="member in recent.group_member" ng-if="member.is_online"> <img style ="border-radius: 50%; max-width:60px; max-height:60px " src={{member.avatar}} ></div>
-
+     <div class="rounded-inline img-avtar-account" ng-repeat="member in recent.group_member" ng-if="member.is_online"> <img style ="border-radius: 50%; max-width:60px; max-height:60px " src={{member.avatar}} ></div>	  
+      
     </div-->
-
+	
 	<div class="img-avtar">
 
       <h2 class="callusernames">Đang kết nối</h2>
@@ -113,16 +109,16 @@
 
        <span ng-repeat="member in recent.group_member" ng-if="!member.is_online">{{member.name}}-{{member.title}} <p><span>
       </h3>
-
+      
     </div>
 	 <!--div class="calling-icons-group">
       <div class="rounded-inline img-avtar-account" ng-repeat="member in recent.group_member" ng-if="!member.is_online"> <img style ="border-radius: 50%; max-width:60px; max-height:60px " src={{member.avatar}} ></div>
-
+	       
     </div-->
     <div class="padding calling-icons-group">
 	  <div class="rounded-inline"><span class="icon-holder"><i class="fa fa-volume-up" ></i></span></div>
       <div class="rounded-inline"> <span class="icon-holder" ng-click="addCallers1()"><i class="fa fa-microphone"></i></span> </div>
-
+      
     </div>
 	<button class="button button-rounded call-icon" ng-click="closeModal()"><i><img src="img/call-drop-icon.png" ></i></button>
   </div>

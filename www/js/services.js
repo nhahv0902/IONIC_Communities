@@ -1,9 +1,9 @@
 ﻿
 angular.module('starter.services', [])
-    .factory('Data', function ($localStorage, $rootScope, $q, $http) {   
+    .factory('Data', function ($localStorage, $rootScope, $q, $http,  $cordovaSocialSharing, $cordovaSms, $cordovaContacts, $ionicPlatform) {   
 		
 		var baseUrl= 'http://128.199.145.205:3030/';
-		//var baseUrl= 'http://localhost:3030/';
+		// var baseUrl= 'http://localhost:3030/';
 		
 		$rootScope.data = $localStorage;
 		
@@ -19,15 +19,27 @@ angular.module('starter.services', [])
 
 				if($localStorage.recents == null)
 						$localStorage.recents = [];
+				if($localStorage.avatars == null)
+						$localStorage.avatars = {};
+					
+					
 			},
 			updateViewData: function(company){
+				
 				$rootScope.contacts = {};
-				$rootScope.company = company;	
-
+				$rootScope.company = company;									
+	
 				for(var i = 0; i < $rootScope.company.user.length; i++) {
 					var member = $rootScope.company.user[i];
-					if(!member.avatar)
+					if(!member.avatar){
 							member.avatar='img/user.png';
+					}else{
+						//read from cache
+						if($localStorage.avatars[member.avatar])
+							member.avatar = $localStorage.avatars[member.avatar];
+					
+					}
+					
 					
 					
 					var group = member.group;
@@ -50,16 +62,47 @@ angular.module('starter.services', [])
 			getMembers: function(phone_number){
 				var self = this;
 				return $q.when($http.get(baseUrl + 'get_users_by_phone_number?phone_number=' + phone_number )).then(function(response){
-						$localStorage.members = [];
+						$localStorage.members = [];						
+						var links =[];
 						for(var i=0;i < response.data.length; i++){
 						    var company = response.data[i];
 							
-							for(var j=0; j < company.user.length; j++)
+							for(var j=0; j < company.user.length; j++){
 								company.user[j].name_locdau = self.locdau(company.user[j].name);
+								
+								//if exist in cache
+								if(company.user[j].avatar!=null){
+									var link = company.user[j].avatar;
+									links.push(link);
+									if($localStorage.avatars[link]!=null){
+										 //company.user[j].avatar = $localStorage.avatars[link];
+										 console.log('existing in cache');
+									}else if(Object.keys($localStorage.avatars).length < 100){
+									     //download image	 
+										self.convertToDataURLviaCanvas(link, function (base64Img) {
+											$localStorage.avatars[link] = base64Img;
+											console.log('add to cache');
+										});
+									}
+								}
+							}
+							
 							
 							$localStorage.members.push(response.data[i]);
 							
+							
 						}
+						
+						//remove not existing link from avatar cache
+						for(var link in $localStorage.avatars){
+							var idx = links.indexOf(link);
+							if(idx == -1){
+								delete $localStorage.avatars[link];
+								console.log('remove from cache');
+							}
+						}
+							
+						
 						return $localStorage.members;
 						
 						
@@ -70,6 +113,8 @@ angular.module('starter.services', [])
 			getProfile: function(phone_number){
 			 return $q.when($http.get(baseUrl + 'get_profile_by_phone_number?phone_number=' + phone_number )).then(function(response){
 						$localStorage.user = response.data[0];						
+						if(!$localStorage.user.avatar)
+								$localStorage.user.avatar='img/user.png';
 						return $localStorage.user;						
 						
 					});
@@ -104,6 +149,62 @@ angular.module('starter.services', [])
 
 				return str;
 			},
+			
+			convertToDataURLviaCanvas: function(url, callback, outputFormat){
+				var img = new Image();
+				img.crossOrigin = 'Anonymous';
+				img.onload = function(){
+					var canvas = document.createElement('CANVAS');
+					var ctx = canvas.getContext('2d');
+					var dataURL;
+					canvas.height = this.height;
+					canvas.width = this.width;
+					ctx.drawImage(this, 0, 0);
+					dataURL = canvas.toDataURL(outputFormat);
+					callback(dataURL);
+					canvas = null;
+				};
+				img.src = url;
+			},
+			
+			sendSMS: function(phone_number){
+					$cordovaSocialSharing
+								.shareViaSMS("", phone_number)
+								.then(function (result) {
+									// Success!
+									return true;
+
+								}, function (err) {
+									// An error occurred. Show a message to the user
+									return true;
+					});
+			},
+			sendEmail: function(address){
+					$cordovaSocialSharing
+								.shareViaEmail("", "", address, null, null, null)
+								.then(function (result) {
+									// Success!
+									return true;
+
+								}, function (err) {
+									// An error occurred. Show a message to the user
+									return true;
+								});
+			},
+			
+			addToContact: function(contact){
+					$cordovaContacts.save(contact)
+							.then(function (result) {
+								// Contact saved
+								alert('da luu contact');
+
+							}, function (err) {
+								// Contact error
+					});
+			},
+			
+			
+			
 			
 			
            

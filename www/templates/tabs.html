@@ -16,8 +16,10 @@ navigation history that also transitions its views in and out.
 			
         </div>
         <div ng-if="tab_friends" class="buttons">
+			<button ng-if="isGroupMaking" class="button button-clear button-icon button-positive icon ion-ios-compose-outline"
+                    ng-click="sendSMSGroup()" style="position: absolute; right: 85px;"></button>
             <button ng-if="isGroupMaking" class="button button-clear button-icon button-positive icon ion-ios-email-outline"
-                    ng-click="sendGroup()" style="position: absolute; right: 45px;"></button>
+                    ng-click="sendEmailGroup()" style="position: absolute; right: 45px;"></button>
 			 <button ng-if="isGroupMaking" class="button button-clear button-icon button-positive icon ion-ios-telephone-outline"
                     ng-click="callGroup()" style="position: absolute; right: 5px;"></button>
 					

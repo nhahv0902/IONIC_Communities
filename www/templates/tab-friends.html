@@ -16,7 +16,7 @@
 			
 		</div>
 
-		  <span ng-repeat="friend in contacts | filter:searchText">
+		  <span ng-repeat="friend in contacts | filter:searchText | orderBy : 'order'" ng-if="friend.phone_number!=data.user.phone_number">
                 <ion-item ng-if="!isGroupMaking" class="item-avatar" type="item-text-wrap" ng-click="action(friend)" nav-direction="forward">
 
                 <img src="{{friend.avatar}}" ng-click="profile($event, '{{friend.name}}')">              
